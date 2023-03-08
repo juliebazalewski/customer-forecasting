@@ -2,6 +2,7 @@
 #install.packages("mice")
 #install.packages("forecast")
 library(VIM)
+library(tidyverse)
 library(Amelia)
 library(mice)
 library(forecast)
@@ -27,7 +28,7 @@ missmap(dental)
 plot.ts(dental$Customers,ylab="Customers",main="Dental Customers Over Time")
 
 #impute values with the MICE package, 3 sets
-set.seed(1234)
+set.seed(1235)
 imp <- mice(dental,3)
 imputedValues <- imp$imp$Customers
 imputedData <- complete(imp)
